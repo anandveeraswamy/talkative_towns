@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Hi, here are the upcoming events for each business:</h2>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Business name</th>
+        <th scope="col">Event</th>
+        <th scope="col">Type</th>
+        <th scope="col">Start Time</th>
+        <th scope="col">End Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for business in businesses %}
+        <tr>
+          <td>
+            <a href="{{ url_for('edit_business', business_id=business.business_id) }}">
+              {{ business.name }}
+            </a>
+          </td>
+          <td colspan="4"></td>
+        </tr>
+        {% for event in business.events %}
+          <tr>
+            <td></td>
+            <td>{{ event.name }}</td>
+            <td>{{ event.event_type }}</td>
+            <td>{{ event.start_time }}</td>
+            <td>{{ event.end_time }}</td>
+          </tr>
+        {% else %}
+          <tr>
+            <td></td>
+            <td colspan="4">No upcoming events</td>
+          </tr>
+        {% endfor %}
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

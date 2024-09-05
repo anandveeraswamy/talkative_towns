@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Edit the business {{ business.name }}</h2>
+  <form method="POST">
+    <label>Business Name:
+      <input type="text" name="name" value="{{ business.name }}">
+    </label>
+    <label>Type:
+      <input type="text" name="business_type" value="{{ business.business_type }}">
+    </label>
+    <label>Full Address:
+      <input type="text" name="address" value="{{ business.address }}">
+    </label>
+    <label>Menu items:
+      <input type="text" name="menu" value="{{ business.menu }}">
+    </label>
+    <label>Promotions:
+      <input type="text" name="promotions" value="{{ business.promotions }}">
+    </label>
+
+    <button type="submit">Save Changes</button>
+  </form>
+  <form action="{{ url_for('delete_business', business_id=business.business_id) }}" method="GET">
+    <button type="submit">Delete</button>
+  </form>
+{% endblock %}

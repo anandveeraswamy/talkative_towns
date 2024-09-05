@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Create a new business</h2>
+  <form method="POST">
+    <label>Business Name:
+      <input type="text" name="name">
+    </label>
+    <label>Type:
+      <input type="text" name="business_type">
+    </label>
+    <label>Full Address:
+      <input type="text" name="address">
+    </label>
+    <label>Menu items:
+      <input type="text" name="menu">
+    </label>
+    <label>Promotions:
+      <input type="text" name="promotions">
+    </label>
+
+    <button type="submit">Create</button>
+  </form>
+{% endblock %}
